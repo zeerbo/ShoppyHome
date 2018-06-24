@@ -26,9 +26,16 @@ namespace ShoppyHomeServer.Controllers.Spesa
 
         public Catalogo GetCatalogo(Supermarket s)
         {
-           //query su db dove verrà creato il catalogo e la lista di prodotti
-            
-            return new Catalogo(new List<ElementoCatalogo>());
+            Catalogo result;
+            List<ElementoCatalogo> queryResult;
+            using (ITransaction t = _session.BeginTransaction())
+            {
+                queryResult = _session.Query<ElementoCatalogo>().Where(c => c.IdNegozio == s.IdNegozio).ToList();
+                result = new Catalogo(queryResult);
+                t.Commit();
+            }
+
+            return result;
         }
     }
 }
