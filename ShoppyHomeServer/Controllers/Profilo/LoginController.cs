@@ -19,23 +19,14 @@ namespace ShoppyHomeServer.Controllers.Profilo
 
         public Utente VerificaCredenziali(String username, String password)
         {
-            //if le credenziali sono giute (DB) ritrona l'utente specificato
-            return new Utente
+            Utente u = null;
+            using (ITransaction t = _session.BeginTransaction())
             {
-                Nome = "ciao",
-                Cognome = "ciao",
-                Citta = "ciao",
-                DataNascita = DateTime.Now,
-                DomandaRecuperoPassword = 1,
-                Email = "ciao",
-                NumeroCivico = 2,
-                Password = "ciao",
-                Provincia = "ciao",
-                RispostaRecuperoPassword = "ciao",
-                Telefono = "0258",
-                Username = "ciao",
-                Via = "ciao"
-            };
+                u = _session.Query<Utente>().Where(utente => utente.Username == username && utente.Password == password).FirstOrDefault();
+                t.Commit();
+            }
+
+            return u;
         }
 
        /* public Connection GetConnection()

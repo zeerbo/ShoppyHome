@@ -15,12 +15,16 @@ namespace ShoppyHomeServer.Controllers.Profilo
 
         public StoricoController(Utente u, ISession session)
         {
-            //Query al DB per creare lo storico dello specifico utente
             _session = session;
-            _storico = new Storico(new List<ShoppyHomeServer.Models.Model.Profilo.Spesa>())
+            using (ITransaction t = _session.BeginTransaction()) {
+                List<Models.Model.Profilo.Spesa> spese = _session.Query<Models.Model.Profilo.Spesa>()
+                    .Where(s => s.Username == u.Username).ToList();
+                _storico = new Storico(spese);
+                t.Commit();
+            }
         }
 
-        public List<ShoppyHomeServer.Models.Model.Profilo.Spesa> ElencoOrdini()
+        public List<Models.Model.Profilo.Spesa> ElencoOrdini()
         {
             return _storico.StoricoOrdini();
         }
