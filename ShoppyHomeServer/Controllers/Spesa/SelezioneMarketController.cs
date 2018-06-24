@@ -16,8 +16,12 @@ namespace ShoppyHomeServer.Controllers.Spesa
         public SelezioneMarketController(ISession session)
         {
             _session = session;
-            _supermarkets = new List<Supermarket>();
             //query ad DB per popolare _supermarkets
+            using(ITransaction t = _session.BeginTransaction())
+            {
+                _supermarkets = _session.Query<Supermarket>().ToList();
+                t.Commit();
+            }
         }
 
         public List<Supermarket> GetElencoSupermarket()
