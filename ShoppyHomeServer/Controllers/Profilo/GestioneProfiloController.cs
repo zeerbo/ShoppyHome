@@ -52,7 +52,12 @@ namespace ShoppyHomeServer.Controllers.Profilo
                 if (!_utente.Email.Equals(email)) _utente.Telefono = telefono;
                 if (!_utente.Username.Equals(username)) _utente.Username = username;
                 if (!_utente.Password.Equals(password)) _utente.Password = password;
-                //aggiorno DB
+
+                using (ITransaction t = _session.BeginTransaction())
+                {
+                    _session.SaveOrUpdate(_utente);
+                    t.Commit();
+                }
             }
 
             return result;
@@ -66,7 +71,12 @@ namespace ShoppyHomeServer.Controllers.Profilo
         private Boolean UsernameValido(String username)
         {
             Boolean result = false;
-            //query su db che imposta result a "true" se non trova altri username uguali
+            using (ITransaction t = _session.BeginTransaction())
+            {
+                Utente utente = _session.Query<Utente>().Where(u => u.Username == username).FirstOrDefault();
+                if (utente == null) result = true;
+                t.Commit();
+            }
             return result;
         }
 

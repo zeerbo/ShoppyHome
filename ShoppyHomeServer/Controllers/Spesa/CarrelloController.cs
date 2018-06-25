@@ -28,7 +28,6 @@ namespace ShoppyHomeServer.Controllers.Spesa
         public Boolean RimuoviProdotto(ElementoCatalogo p)
         {
             Boolean res = _carrello.EliminaProdotto(p);
-            //aggiorna db
             AggiornaSaldo();
             return res;
         }
@@ -36,7 +35,12 @@ namespace ShoppyHomeServer.Controllers.Spesa
         public Boolean ModificaQuantitaProdotto(ElementoCatalogo p, int q)
         {
             Boolean res =_carrello.SetQuantita(p, q);
-            //aggiorna db
+            using (ITransaction t = _session.BeginTransaction())
+            {
+                p.Disponibilita = p.Disponibilita - q;
+                _session.SaveOrUpdate(p);
+                t.Commit();
+            }
             AggiornaSaldo();
             return res;
         }

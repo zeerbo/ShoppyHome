@@ -21,7 +21,12 @@ namespace ShoppyHomeServer.Controllers.Profilo
         private Boolean UsernameValido(String username)
         {
             Boolean result = false;
-            //query su db che imposta result a "true" se non trova altri username uguali
+            using (ITransaction t = _session.BeginTransaction())
+            {
+                Utente utente = _session.Query<Utente>().Where(u => u.Username == username).FirstOrDefault();
+                if (utente == null) result = true;
+                t.Commit();
+            }
             return result;
         }
 
@@ -46,26 +51,35 @@ namespace ShoppyHomeServer.Controllers.Profilo
 
             if (result)
             {
-                int idDomanda = 0;
-                //query per ottere l'Id della domanda
-                _utente = new Utente
+                using (ITransaction t = _session.BeginTransaction())
                 {
-                    Nome = nome,
-                    Cognome = cognome,
-                    DataNascita = dataNascita,
-                    Provincia = indirizzo.Provincia,
-                    Citta = indirizzo.Citta,
-                    Via = indirizzo.Via,
-                    NumeroCivico = indirizzo.NumeroCivico,
-                    Email = email,
-                    Telefono = telefono,
-                    Username = username,
-                    Password = password,
-                    DomandaRecuperoPassword = idDomanda,
-                    RispostaRecuperoPassword = rispostaRecPass
-                };
+                    int idDomanda = 0;
+                    DomandaSicurezza domanda = _session.Query<DomandaSicurezza>().Where(d => d.Domanda == domandaRecPass).FirstOrDefault();
+                    if (domanda != null)
+                    {
+                        idDomanda = domanda.IdDomanda;
+                        _utente = new Utente
+                        {
+                            Nome = nome,
+                            Cognome = cognome,
+                            DataNascita = dataNascita,
+                            Provincia = indirizzo.Provincia,
+                            Citta = indirizzo.Citta,
+                            Via = indirizzo.Via,
+                            NumeroCivico = indirizzo.NumeroCivico,
+                            Email = email,
+                            Telefono = telefono,
+                            Username = username,
+                            Password = password,
+                            DomandaRecuperoPassword = idDomanda,
+                            RispostaRecuperoPassword = rispostaRecPass
+                        };
 
-                //aggiorno DB
+                        _session.SaveOrUpdate(_utente);
+                    }
+                    else result = false;
+                    t.Commit();
+                }
             }
             return result;
         }
