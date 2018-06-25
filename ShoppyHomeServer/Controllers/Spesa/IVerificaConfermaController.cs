@@ -1,4 +1,5 @@
-﻿using ShoppyHomeServer.Models.Model.Spesa;
+﻿using ShoppyHomeServer.Models.Model.Profilo;
+using ShoppyHomeServer.Models.Model.Spesa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ShoppyHomeServer.Controllers.Spesa
 {
     public interface IVerificaConfermaController 
     {
-        Boolean TerminaSpesa();
+        Boolean TerminaSpesa(Indirizzo indirizzo);
 
         Dictionary<ElementoCatalogo, int> GetElencoProdotti();
     }

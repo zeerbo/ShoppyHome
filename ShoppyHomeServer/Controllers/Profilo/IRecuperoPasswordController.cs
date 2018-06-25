@@ -8,6 +8,6 @@ namespace ShoppyHomeServer.Controllers.Profilo
 {
     public interface IRecuperoPasswordController
     {
-        Boolean VerificaDomandaSicurezza(String risposta);
+        Boolean VerificaDomandaSicurezza(String risposta, String username);
     }
 }

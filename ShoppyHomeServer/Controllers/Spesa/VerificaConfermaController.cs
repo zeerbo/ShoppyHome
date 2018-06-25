@@ -27,7 +27,7 @@ namespace ShoppyHomeServer.Controllers.Spesa
             return _ordine.RiepilogoOrdine();
         }
 
-        public Boolean TerminaSpesa()
+        public Boolean TerminaSpesa(Indirizzo indirizzo)
         {
            /* if (!_ordine.Utente.Indirizzo.Equals(_utente.Indirizzo questo è lo stesso utente, credo che qui bisogni 
                 controllare il dato inserito nella casella di testo della view ))

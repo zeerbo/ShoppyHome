@@ -89,7 +89,7 @@ namespace ShoppyHomeServer.Controllers.Profilo
             return Content(Serialize<Utente>(res));
         }
 
-        //IRecuperPasswordController
+        //IRecuperoPasswordController
         public ActionResult VerificaDomandaSicurezza()
         {
             Richiesta r = Deserialize<Richiesta>();
@@ -98,7 +98,7 @@ namespace ShoppyHomeServer.Controllers.Profilo
                 GestoreSessione.GetGestoreSessione().EliminaSessione(r.Mittente);
                 return Content(Serialize<bool>(false));
             }
-            bool res = _recuperoPasswordController.VerificaDomandaSicurezza((String)r.Parametri[0]);
+            bool res = _recuperoPasswordController.VerificaDomandaSicurezza((String)r.Parametri[0], (String)r.Parametri[1]);
             return Content(Serialize<bool>(res));
         }
         

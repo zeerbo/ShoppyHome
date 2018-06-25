@@ -136,7 +136,7 @@ namespace ShoppyHomeServer.Controllers.Spesa
                 GestoreSessione.GetGestoreSessione().EliminaSessione(r.Mittente);
                 return Content(Serialize<bool>(false));
             }
-            bool res = _verificaConfermaController.TerminaSpesa();
+            bool res = _verificaConfermaController.TerminaSpesa((Indirizzo)r.Parametri[0]);
             GestoreSessione.GetGestoreSessione().EliminaSessione(r.Mittente);
             return Content(Serialize<bool>(res));
         }

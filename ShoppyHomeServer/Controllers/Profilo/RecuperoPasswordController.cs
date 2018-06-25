@@ -17,7 +17,7 @@ namespace ShoppyHomeServer.Controllers.Profilo
             _session = session;
         }
 
-        public Boolean VerificaDomandaSicurezza(String risposta)
+        public Boolean VerificaDomandaSicurezza(String risposta, String username)
         {
             Boolean result = false;
             //Non so se va bene così o serva connettersi ad un DB
