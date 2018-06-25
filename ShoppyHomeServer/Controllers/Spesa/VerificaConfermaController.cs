@@ -29,10 +29,9 @@ namespace ShoppyHomeServer.Controllers.Spesa
 
         public Boolean TerminaSpesa(Indirizzo indirizzo)
         {
-           /* if (!_ordine.Utente.Indirizzo.Equals(_utente.Indirizzo questo è lo stesso utente, credo che qui bisogni 
-                controllare il dato inserito nella casella di testo della view ))
-                ModificaIndirizzo(_utente.Indirizzo);*/
-
+            if (indirizzo != null){
+                ModificaIndirizzo(indirizzo);
+            }
             InviaSpesa();
             return true;
         }
@@ -44,8 +43,16 @@ namespace ShoppyHomeServer.Controllers.Spesa
 
         private void ModificaIndirizzo(Indirizzo indirizzo)
         {
-            //controllo se l'opzione nella view è spuntata
-            //_ordine.Utente.Indirizzo = indirizzo;
+            _utente.Provincia = indirizzo.Provincia;
+            _utente.Citta = indirizzo.Citta;
+            _utente.Via = indirizzo.Via;
+            _utente.NumeroCivico = indirizzo.NumeroCivico;
+
+            using (ITransaction t = _session.BeginTransaction())
+            {
+                _session.SaveOrUpdate(_utente);
+                t.Commit();
+            }
         }
     }
 }
