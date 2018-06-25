@@ -166,7 +166,6 @@
     <Compile Include="Controllers\Profilo\LoginController.cs" />
     <Compile Include="Controllers\Profilo\RecuperoPasswordController.cs" />
     <Compile Include="Controllers\Profilo\RegistrazioneController.cs" />
-    <Compile Include="Controllers\Profilo\StoricoController.cs" />
     <Compile Include="Controllers\Spesa\CarrelloController.cs" />
     <Compile Include="Controllers\Spesa\CatalogoController.cs" />
     <Compile Include="Controllers\Spesa\GestioneSpesaController.cs" />
