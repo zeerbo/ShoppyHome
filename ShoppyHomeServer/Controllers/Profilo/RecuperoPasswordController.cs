@@ -20,10 +20,12 @@ namespace ShoppyHomeServer.Controllers.Profilo
         public Boolean VerificaDomandaSicurezza(String risposta, String username)
         {
             Boolean result = false;
-            //Non so se va bene così o serva connettersi ad un DB
-            //In questa soluzione si suppone di sapere qual'è l'utente loggato e quindi che possa
-            //essere passato come paramentro al momento della crezione del controller
-            // if (_utente.RispostaRecuperoPassword.Equals(risposta)) result = true;
+            using (ITransaction t = _session.BeginTransaction())
+            {
+                Utente utente = _session.Query<Utente>()
+                    .Where(u => u.Username == username && u.RispostaRecuperoPassword == risposta).FirstOrDefault();
+                if (utente != null) result = true;
+            }
             return result;
         }
 
