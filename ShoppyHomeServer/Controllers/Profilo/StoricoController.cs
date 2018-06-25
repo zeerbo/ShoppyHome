@@ -17,7 +17,7 @@ namespace ShoppyHomeServer.Controllers.Profilo
         {
             //Query al DB per creare lo storico dello specifico utente
             _session = session;
-            _storico = new Storico(new List<ShoppyHomeServer.Models.Model.Profilo.Spesa>())
+            _storico = new Storico(new List<ShoppyHomeServer.Models.Model.Profilo.Spesa>());
         }
 
         public List<ShoppyHomeServer.Models.Model.Profilo.Spesa> ElencoOrdini()

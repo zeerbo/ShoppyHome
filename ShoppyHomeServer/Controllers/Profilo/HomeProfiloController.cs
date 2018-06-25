@@ -32,7 +32,7 @@ namespace ShoppyHomeServer.Controllers.Profilo
 
             _loginController = new LoginController(_session);
             _registrazioneController = new RegistrazioneController(_session);
-            _recuperoPasswordController = new RecuperoPasswordController(_session.);
+            _recuperoPasswordController = new RecuperoPasswordController(_session);
         }
 
         
