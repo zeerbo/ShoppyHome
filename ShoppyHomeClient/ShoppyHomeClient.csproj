@@ -32,8 +32,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\..\Downloads\NHibernate\Required_Bins\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\..\Downloads\NHibernate\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\..\Downloads\NHibernate\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq">
+      <HintPath>..\..\..\..\Downloads\NHibernate\Required_Bins\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching">
+      <HintPath>..\..\..\..\Downloads\NHibernate\Required_Bins\Remotion.Linq.EagerFetching.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,10 +65,6 @@
   <ItemGroup>
     <Compile Include="Broker\FiltroRichieste.cs" />
     <Compile Include="Broker\Richiesta.cs" />
-    <Compile Include="Models\Broker\GestoreSessione.cs" />
-    <Compile Include="Models\Broker\Richiesta.cs" />
-    <Compile Include="Models\Broker\Sessione.cs" />
-    <Compile Include="Models\Broker\SessioniAttive.cs" />
     <Compile Include="Models\Model\Log\Entry.cs" />
     <Compile Include="Models\Model\Log\EntryMessaggio.cs" />
     <Compile Include="Models\Model\Log\EntryOperazione.cs" />

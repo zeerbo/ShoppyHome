@@ -1,0 +1,16 @@
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.csprojAssemblyReference.cache
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Anomalie.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Carrello.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Catalogo.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.GestioneLog.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.HomeSpesa.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Log.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Login.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Profilo.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.RecuperoPassword.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.RegistrazioneApp.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.SelezioneMarket.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.Verifica_Conferma.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.Views.VisualStorici.resources
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.csproj.GenerateResource.cache
+C:\Users\campa\source\repos\ShoppyHome\ShoppyHomeClient\obj\Debug\ShoppyHomeClient.csproj.CoreCompileInputs.cache

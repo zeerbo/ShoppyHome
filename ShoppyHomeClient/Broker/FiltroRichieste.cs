@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace ShoppyHomeClient.Broker
 {
-    public static class ServerClientHTTP
+    public static class FiltroRichieste
     {
         private static readonly string _serverUrl = "http://localhost:50308/"; 
         private static readonly HttpClient _client = new HttpClient();
